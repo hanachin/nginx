@@ -26,8 +26,6 @@ bash "setup_small_light_module" do
   code <<-EOH
     ./setup #{node['nginx']['small_light']['setup_option']}
   EOH
-
-  not_if { ::File.exists?(slm_extract_path) }
 end
 
 node.run_state['nginx_configure_flags'] =
